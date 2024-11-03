@@ -1,0 +1,56 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+error: expected expression, found `?`
+  --> /home/runner/work/rustlings-Yttehs-HDX/rustlings-Yttehs-HDX/format_check/src/lib.rs:26:19
+   |
+26 |     let mut vec = ???
+   |                   ^ expected expression
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-Yttehs-HDX/rustlings-Yttehs-HDX/format_check)
+error: expected expression, found `?`
+  --> src/lib.rs:26:19
+   |
+26 |     let mut vec = ???
+   |                   ^ expected expression
+
+error[E0106]: missing lifetime specifier
+  --> src/lib.rs:25:13
+   |
+25 | fn foo() -> &mut Vec<i32> {
+   |             ^ expected named lifetime parameter
+   |
+   = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+help: consider using the `'static` lifetime, but this is uncommon unless you're returning a borrowed value from a `const` or a `static`
+   |
+25 | fn foo() -> &'static mut Vec<i32> {
+   |              +++++++
+help: instead, you are more likely to want to return an owned value
+   |
+25 - fn foo() -> &mut Vec<i32> {
+25 + fn foo() -> Vec<i32> {
+   |
+
+error[E0425]: cannot find value `vec0` in this scope
+  --> src/lib.rs:15:23
+   |
+15 |     let mut vec = foo(vec0);
+   |                       ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0425]: cannot find value `vec1` in this scope
+  --> src/lib.rs:17:57
+   |
+17 |     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
+   |                                                         ^^^^ help: a local variable with a similar name exists: `vec`
+

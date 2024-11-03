@@ -1,0 +1,34 @@
+Checking test execution result...
+[!] Test execution result: PASSED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+Diff in /home/runner/work/rustlings-Yttehs-HDX/rustlings-Yttehs-HDX/format_check/src/lib.rs:19:
+ }
+ 
+ fn vec_map(v: &Vec<i32>) -> Vec<i32> {
+-    v.iter().map(|element| {
+-        // TODO: Do the same thing as above - but instead of mutating the
+-        // Vec, you can just return the new number!
+-        element * 2
+-    }).collect()
++    v.iter()
++        .map(|element| {
++            // TODO: Do the same thing as above - but instead of mutating the
++            // Vec, you can just return the new number!
++            element * 2
++        })
++        .collect()
+ }
+ 
+ #[cfg(test)]
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+[!] Source code format check: FAILED
